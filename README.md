@@ -7,7 +7,7 @@
 - Teaching to new R users
 - Big wins & building ownership
 - The installation barrier (learnr, RStudio Cloud)
-- Existing tutorials
 - Build an organized kitchen
-- Make your own life easier
+- Existing tutorials
+- Make your own life easier (Xaringan)
 
