@@ -1,13 +1,13 @@
-# Flight of R Teaching Tools 
+# Teaching R: Strategies & tools
 
-An introduction to some modern teaching tools to help instructors, TAs & workshop leaders incorporate R & data science into courses (especially those with beginning coders).
+## QMSS Seminar (Nov 2021)
 
-## Included in this talk
+*An overview of some teaching strategies and tools that can help you incorporate R into your teaching.*
 
-### {swirl} 
+- Teaching to new R users
+- Big wins & building ownership
+- The installation barrier (learnr, RStudio Cloud)
+- Existing tutorials
+- Build an organized kitchen
+- Make your own life easier
 
-### RStudio tutorials & custom {learnr} tutorials
-
-### RStudio Cloud
-
-### Xaringan
