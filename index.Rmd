@@ -4,8 +4,9 @@ subtitle: "QMSS Seminar 2021-11-04"
 author: "Allison Horst"
 output: 
   html_document: 
-    theme: flatly
+    css: style.css
     toc: yes
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}
@@ -19,3 +20,4 @@ xaringanExtra::embed_xaringan(
   border = "1px solid gainsboro"
 )
 ```
+

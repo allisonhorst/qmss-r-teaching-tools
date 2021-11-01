@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Benne&family=Mada:wght@300;400&display=swap');
+
+h1 {
+  font-family: Mada;
+  color: indigo;
+}
+
+h2 {
+  font-family: Mada;
+  color: rebeccapurple;
+}
+
+h3 {
+  font-family: Mada;
+  color: purple;
+}
+
+body {
+  font-family: Mada;
+  color: black;
+}
+
+a {
+  color: purple;
+}
+
+a:hover, a:focus {
+    color: purple;
+    text-decoration: underline;
+}
+
+pre.r {
+  color: black;
+}
+
+span.hljs-comment {
+  color: teal;
+}
+
+li.tocify-item.list-group-item.active {
+  background-color: indigo;
+}
