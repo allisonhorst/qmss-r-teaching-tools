@@ -1,0 +1,21 @@
+---
+title: "Tips & tools for teaching R with beginners"
+subtitle: "QMSS Seminar 2021-11-04"
+author: "Allison Horst"
+output: 
+  html_document: 
+    theme: flatly
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = FALSE}
+xaringanExtra::embed_xaringan(
+  url = "qmss_r_teaching_slides.html",
+  ratio = "16:9",
+  border = "1px solid gainsboro"
+)
+```

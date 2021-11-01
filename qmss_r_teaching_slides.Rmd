@@ -1,8 +1,8 @@
 ---
-title: "Teaching R: Tips, Tools & Strategies"
+title: "Teaching tips for introducing R"
+subtitle: "QMSS Seminar 2021-11-04"
 author: "Allison Horst"
 institute: "Bren School (UCSB)"
-date: "2021-11-04 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
     includes:
@@ -16,10 +16,13 @@ output:
       highlightStyle: ir-black
       highlightLines: true
       countIncrementalSlides: false
+      titleSlideClass: [left]
 ---
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
+library(emo)
+library(tidyverse)
 ```
 
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
@@ -29,32 +32,40 @@ style_duo(
   secondary_color = "white",
   header_font_google = google_font("Gowun Batang"),
   text_font_google   = google_font("Assistant", "300", "300i"),
-  code_font_google   = google_font("Roboto Mono")
+  code_font_google   = google_font("Roboto Mono"),
+  text_font_size = "1.5rem",
+  title_slide_background_image = "r_first_then.png",
+  title_slide_background_size = "40%",
+  title_slide_background_position = "right",
+  title_slide_background_color = "white",
+  title_slide_text_color = "#4e344e"
 )
 ```
 
 # Outline
 
-- ### Teaching strategies for beginning R users
+- ### 4 strategies to get hesitant students on board
 
-- ### Useful tools to get over installation barriers
+- ### 3 tools to make your life easier...when teaching and otherwise
 
-- ### Building a data science kitchen
-
-- ### Use existing tutorials
-
-- ### Tools to make your own life easier
+- ### 2 tools to get learners up-and-running
 
 ---
 
-## First day of Coding 101
+class: inverse, center, middle
+
+## 4 strategies to get hesitant students on board with R
+
+
+
+---
+
+## First interaction with R?
 
 ```{r}
-scalar <- 14
-
 vec <- c(1, 5, 10, 20)
 
-vec[2] + scalar
+vec[2]
 ```
 
 ```{r}
@@ -63,27 +74,70 @@ sequence <- seq(from = 1, to = 5, by = 1)
 sequence * 4
 ```
 
+```{r}
+calc_volume <- function(moles, R, temp, pressure) {
+  (moles * R * temp) / pressure 
+}
+```
+
+## `r emo::ji("vomit")`
 
 ---
 
-## Instead: get them on board early with a big win (even running pre-prepared code to make a cool graph, or map, or something)
+## 1. Make early wins
+
+- A ggplot graph (or better, a map)
+- Add an image (e.g. a from the GitHub Octodex)\
+- R Markdown fancy (themes, tabs, TOC, code folding)
 
 ---
 
-## Help them build a kitchen
+## 2. Engage more students with creative activities
 
-- Rainbow parentheses
+- Generative artwork with an existing package
+- Worst data visualization activity
+
+---
+
+## 3. Help them build a kitchen
+
 - Update IDE theme
-- IDE font
-- R Markdown's visual editor
+- R Markdown + visual editor
+- Rainbow parentheses
+- R Projects + better file paths with `here::here()`
 
 ---
 
-## Code together
+## 4. Write code together
 
-- Not just press 'Run'
-- You type & explain, then they type - everything
-- Bring printed notes! Don't stress yourself out! 
+- Not just pressing 'Run'
+- You type & explain, then they type - line by line
+- Bring printed + annotated notes for yourself
+- Have keys available before and after for everyone
+
+---
+
+class: inverse, center, middle
+
+## 2 tools to avoid installation barriers
+
+---
+
+## learnr tutorials
+
+---
+
+## RStudio Cloud
+
+https://datasciencebox.org/access-r.html
+
+---
+
+## 3 tools that might make you life easier
+
+- {xaringan} for slides
+- {distill} for sturdy, simple websites
+- GitHub Classroom for assignment distribution
 
 ---
 

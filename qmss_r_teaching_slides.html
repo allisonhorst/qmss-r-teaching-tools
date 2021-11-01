@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Teaching R: Tips, Tools &amp; Strategies</title>
+    <title>Teaching R with new learners</title>
     <meta charset="utf-8" />
     <meta name="author" content="Allison Horst" />
     <script src="libs/header-attrs/header-attrs.js"></script>
@@ -25,12 +25,12 @@
   </head>
   <body>
     <textarea id="source">
-class: center, middle, inverse, title-slide
+class: left, title-slide
 
-# Teaching R: Tips, Tools &amp; Strategies
+# Teaching R with new learners
+## QMSS Seminar 2021-11-04
 ### Allison Horst
 ### Bren School (UCSB)
-### 2021-11-04 (updated: 2021-10-26)
 
 ---
 
@@ -41,31 +41,31 @@ class: center, middle, inverse, title-slide
 
 # Outline
 
-- ### Teaching strategies for beginning R users
+- ### 4 strategies to get hesitant students on board
 
-- ### Useful tools to get over installation barriers
+- ### 3 tools to make your life easier
 
-- ### Building a data science kitchen
-
-- ### Use existing tutorials
-
-- ### Tools to make your own life easier
+- ### 2 tools to get learners up-and-running
 
 ---
 
-## First day of Coding 101
+class: inverse, center, middle
+
+## 4 tips to get hesitant students on board with R
+
+---
+
+## First interaction with R?
 
 
 ```r
-scalar &lt;- 14
-
 vec &lt;- c(1, 5, 10, 20)
 
-vec[2] + scalar
+vec[2]
 ```
 
 ```
-## [1] 19
+## [1] 5
 ```
 
 
@@ -80,26 +80,70 @@ sequence * 4
 ```
 
 
+```r
+calc_volume &lt;- function(moles, R, temp, pressure) {
+  (moles * R * temp) / pressure 
+}
+```
+
+## 🤢
+
 ---
 
-## Instead: get them on board early with a big win (even running pre-prepared code to make a cool graph, or map, or something)
+## 1. Give early, empowering wins
+
+- A ggplot graph (or better, a map)
+- Add an image (e.g. a from the GitHub Octodex)\
+- R Markdown fancy (themes, tabs, TOC, code folding)
 
 ---
 
-## Help them build a kitchen
+## 2. Engage more students with creative activities
 
-- Rainbow parentheses
+- Generative artwork with an existing package
+- Worst data visualization activity
+
+---
+
+## 3. Help them build a kitchen
+
 - Update IDE theme
-- IDE font
-- R Markdown's visual editor
+- R Markdown + visual editor
+- Rainbow parentheses
+- R Projects + better file paths with `here::here()`
 
 ---
 
-## Code together
+## 4. Write code together
 
-- Not just press 'Run'
-- You type &amp; explain, then they type - everything
-- Bring printed notes! Don't stress yourself out! 
+- Not just pressing 'Run'
+- You type &amp; explain, then they type - line by line
+- Bring printed + annotated notes for yourself
+- Have keys available before and after for everyone
+
+---
+
+class: inverse, center, middle
+
+## 2 tools to avoid installation barriers
+
+---
+
+## learnr tutorials
+
+---
+
+## RStudio Cloud
+
+https://datasciencebox.org/access-r.html
+
+---
+
+## 3 tools that might make you life easier
+
+- {xaringan} for slides
+- {distill} for sturdy, simple websites
+- GitHub Classroom for assignment distribution
 
 ---
 
@@ -393,8 +437,8 @@ library(leaflet)
 leaflet() %&gt;% addTiles() %&gt;% setView(-93.65, 42.0285, zoom = 17)
 ```
 
-<div id="htmlwidget-e71d2a69bb5c7c354057" style="width:100%;height:432px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e71d2a69bb5c7c354057">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a4118592aeca08c5b308" style="width:100%;height:432px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a4118592aeca08c5b308">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -406,8 +450,8 @@ DT::datatable(
 )
 ```
 
-<div id="htmlwidget-5850c187532f16c78836" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5850c187532f16c78836">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-15c4d5702ac9e304a63f" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-15c4d5702ac9e304a63f">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
 ---
 
