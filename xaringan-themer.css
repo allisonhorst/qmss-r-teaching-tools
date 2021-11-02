@@ -46,13 +46,13 @@
   --text-color: #FFFFFF;
   --header-color: white;
   --background-color: #4e344e;
-  --link-color: white;
+  --link-color: #ffcdff;
   --text-bold-color: white;
   --code-highlight-color: rgba(255,255,0,0.5);
   --inverse-text-color: #4e344e;
   --inverse-background-color: white;
   --inverse-header-color: #4e344e;
-  --inverse-link-color: white;
+  --inverse-link-color: #a824a8;
   --title-slide-background-color: white;
   --title-slide-text-color: #4e344e;
   --header-background-color: white;

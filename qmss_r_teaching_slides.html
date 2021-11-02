@@ -1,33 +1,17 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Teaching R with new learners</title>
+    <title>Teaching tips for R introductions</title>
     <meta charset="utf-8" />
     <meta name="author" content="Allison Horst" />
     <script src="libs/header-attrs/header-attrs.js"></script>
-    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
-    <script src="libs/jquery/jquery-3.6.0.min.js"></script>
-    <link href="libs/leaflet/leaflet.css" rel="stylesheet" />
-    <script src="libs/leaflet/leaflet.js"></script>
-    <link href="libs/leafletfix/leafletfix.css" rel="stylesheet" />
-    <script src="libs/proj4/proj4.min.js"></script>
-    <script src="libs/Proj4Leaflet/proj4leaflet.js"></script>
-    <link href="libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
-    <script src="libs/leaflet-binding/leaflet.js"></script>
-    <link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
-    <script src="libs/datatables-binding/datatables.js"></script>
-    <link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
-    <link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
-    <script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
-    <link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
-    <script src="libs/crosstalk/js/crosstalk.min.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: left, title-slide
 
-# Teaching R with new learners
+# Teaching tips for R introductions
 ## QMSS Seminar 2021-11-04
 ### Allison Horst
 ### Bren School (UCSB)
@@ -39,19 +23,21 @@ class: left, title-slide
 
 
 
-# Outline
+# 4-3-2-1...go outline!
 
-- ### 4 strategies to get hesitant students on board
+- ### 4️⃣ strategies to welcome hesitant students
 
-- ### 3 tools to make your life easier
+- ### 3️⃣ tools to make your life easier 
 
-- ### 2 tools to get learners up-and-running
+- ### 2️⃣ platforms to minimize installation barriers
+
+- ### 1️⃣ lesson learned 
 
 ---
 
 class: inverse, center, middle
 
-## 4 tips to get hesitant students on board with R
+# 4️⃣ strategies to welcome hesitant students
 
 ---
 
@@ -86,46 +72,180 @@ calc_volume &lt;- function(moles, R, temp, pressure) {
 }
 ```
 
-## 🤢
+## 🤮
 
 ---
 
-## 1. Give early, empowering wins
+## Create early wins
 
-- A ggplot graph (or better, a map)
-- Add an image (e.g. a from the GitHub Octodex)\
-- R Markdown fancy (themes, tabs, TOC, code folding)
+- A cool visualization they can customize
+- Low-effort, high-impact updates in R Markdown
 
 ---
+
+class: left, middle
+
+"On the first day of the course...students are presented with a fully functional R Markdown document...that they can knit to produce an in-depth data visualization. Then, **by updating just one parameter in the R Markdown document, they can produce a new report with a new data visualization**."
+
+.footnote[
+From [A Fresh Look at Introductory Data Science](https://www.tandfonline.com/doi/full/10.1080/10691898.2020.1804497) by Mine Cetinkaya-Rundel and Victoria Ellison in the Journal of Statistics and Data Science Education (Vol. 29, 2021).
+]
+
+---
+
+class: inverse
 
 ## 2. Engage more students with creative activities
 
-- Generative artwork with an existing package
-- Worst data visualization activity
+&lt;img src="rstudio-artist.jpg" width="50%" style="display: block; margin: auto;" /&gt;
+
 
 ---
 
-## 3. Help them build a kitchen
+class: center, top, inverse
+
+&lt;img src="ds-venn.png" width="45%" /&gt;
+
+.footnote[
+From the [Data Science at the Urban Institute](https://urban-institute.medium.com/what-is-data-science-the-urban-institute-b5e4b3ff9cc2)
+]
+
+---
+
+### Do your data viz worst
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="simpsons-viz.png" alt="By Jessica West, Bren MESM Class of 2023" width="60%" /&gt;
+&lt;p class="caption"&gt;By Jessica West, Bren MESM Class of 2023&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+```r
+ggplot(data = space, aes(x = agency, y = launch_year)) +
+  annotation_custom(rasterGrob(img, width = unit(1,"npc"), height = unit(1,"npc")), 
+                    -Inf, Inf, -Inf, Inf) +
+  geom_point() +
+  theme(
+    plot.background = element_rect(fill = "yellow"),
+    plot.title = element_text(size = 30, hjust = 0.25),
+    plot.subtitle = element_text(size = 20, hjust = 0.75, color = "red", family = "serif"),
+    plot.caption = element_text(size = 10, face = "italic", angle = 25),
+    axis.title.x = element_text(face = "bold.italic", color = "blue"),
+    axis.title.y = element_text(family = "mono", face = "bold", size = 20, hjust = 0.25),
+    axis.text = element_text(face = "italic", size = 15),
+    axis.text.x.bottom = element_text(angle = 180),
+    panel.background = element_rect(fill = 'lightblue', colour = 'darkred', size = 4),
+    panel.border = element_rect(fill = NA, color = "green", size = 2),
+    panel.grid.major.x = element_line(color = "purple", linetype = 2),
+    panel.grid.minor.x = element_line(color = "orange", linetype = 3),
+    panel.grid.minor.y = element_blank(),
+    strip.background = element_rect(fill = "magenta"),
+    strip.text.y = element_text(color = "white"),
+    strip.placement = "outside") +
+  labs(x = "Agency", 
+       y = "Y", 
+       title = "Agency L@unch D@tes",
+       subtitle = "Some time before today",
+       caption = "Data source: Space Force?")
+```
+
+---
+
+### Create artwork with an existing package
+
+For example, Danielle Navarro's {flametree} package:
+
+
+.footnote[
+See Danielle's summary of [generative art packages for R](https://blog.djnavarro.net/posts/2021-10-19_rtistry-posts/)
+]
+
+---
+
+
+```r
+library(flametree)
+
+# pick some colours
+shades &lt;- c("antiquewhite", "coral", "cyan4", "goldenrod")
+
+# data structure defining the trees
+dat &lt;- flametree_grow(time = 7, trees = 15)
+
+# draw the plot
+p &lt;- dat %&gt;% 
+  flametree_plot(
+    background = "gray10",
+    palette = shades, 
+    style = "nativeflora"
+  )
+```
+
+
+---
+
+class: inverse, center
+
+![](qmss_r_teaching_slides_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
+
+
+---
+
+### Draw a cartoon or storyboard of a function
+
+
+
+---
+
+class: inverse
+
+## 3. Help them build a kitchen that feels good
+
+&lt;img src="decorate-r.jpg" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Minimal effort, big impact ideas:
 
 - Update IDE theme
 - R Markdown + visual editor
 - Rainbow parentheses
-- R Projects + better file paths with `here::here()`
+- R Projects
+- Don't underestimate the challenge of file paths
 
 ---
 
 ## 4. Write code together
 
-- Not just pressing 'Run'
 - You type &amp; explain, then they type - line by line
-- Bring printed + annotated notes for yourself
+- Bring annotated key for yourself
 - Have keys available before and after for everyone
+
+---
+
+## 3 tools that might make your life easier
+
+- {xaringan} for slides
+- GitHub Pages to share keys
+- {distill} for sturdy, simple websites
+
+---
+
+class: center, middle
+
+# xaringan
+
+### /ʃaː.'riŋ.ɡan/
 
 ---
 
 class: inverse, center, middle
 
 ## 2 tools to avoid installation barriers
+
+- {learnr}
+- RStudio Cloud
 
 ---
 
@@ -139,412 +259,11 @@ https://datasciencebox.org/access-r.html
 
 ---
 
-## 3 tools that might make you life easier
+## 1️⃣ big lesson learned
 
-- {xaringan} for slides
-- {distill} for sturdy, simple websites
-- GitHub Classroom for assignment distribution
+### Encouragement is teaching. 
 
----
-
-class: center, middle
-
-# xaringan
-
-### /ʃaː.'riŋ.ɡan/
-
----
-class: inverse, center, middle
-
-# Get Started
-
----
-
-# Hello World
-
-Install the **xaringan** package from [Github](https://github.com/yihui/xaringan):
-
-
-```r
-remotes::install_github("yihui/xaringan")
-```
-
---
-
-You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rstudio/), but you do not have to.
-
-- Create a new R Markdown document from the menu `File -&gt; New File -&gt; R Markdown -&gt; From Template -&gt; Ninja Presentation`;&lt;sup&gt;1&lt;/sup&gt;
-
---
-
-- Click the `Knit` button to compile it;
-
---
-
-- or use the [RStudio Addin](https://rstudio.github.io/rstudioaddins/)&lt;sup&gt;2&lt;/sup&gt; "Infinite Moon Reader" to live preview the slides (every time you update and save the Rmd document, the slides will be automatically reloaded in RStudio Viewer.
-
-.footnote[
-[1] 中文用户请看[这份教程](https://slides.yihui.org/xaringan/zh-CN.html)
-
-[2] See [#2](https://github.com/yihui/xaringan/issues/2) if you do not see the template or addin in RStudio.
-]
-
----
-background-image: url(https://github.com/yihui/xaringan/releases/download/v0.0.2/karl-moustache.jpg)
-background-position: 50% 50%
-class: center, bottom, inverse
-
-# You only live once!
-
----
-
-# Hello Ninja
-
-As a presentation ninja, you certainly should not be satisfied by the "Hello World" example. You need to understand more about two things:
-
-1. The [remark.js](https://remarkjs.com) library;
-
-1. The **xaringan** package;
-
-Basically **xaringan** injected the chakra of R Markdown (minus Pandoc) into **remark.js**. The slides are rendered by remark.js in the web browser, and the Markdown source needed by remark.js is generated from R Markdown (**knitr**).
-
----
-
-# remark.js
-
-You can see an introduction of remark.js from [its homepage](https://remarkjs.com). You should read the [remark.js Wiki](https://github.com/gnab/remark/wiki) at least once to know how to
-
-- create a new slide (Markdown syntax&lt;sup&gt;*&lt;/sup&gt; and slide properties);
-
-- format a slide (e.g. text alignment);
-
-- configure the slideshow;
-
-- and use the presentation (keyboard shortcuts).
-
-It is important to be familiar with remark.js before you can understand the options in **xaringan**.
-
-.footnote[[*] It is different with Pandoc's Markdown! It is limited but should be enough for presentation purposes. Come on... You do not need a slide for the Table of Contents! Well, the Markdown support in remark.js [may be improved](https://github.com/gnab/remark/issues/142) in the future.]
-
----
-background-image: url(https://github.com/yihui/xaringan/releases/download/v0.0.2/karl-moustache.jpg)
-background-size: cover
-class: center, bottom, inverse
-
-# I was so happy to have discovered remark.js!
-
----
-class: inverse, middle, center
-
-# Using xaringan
-
----
-
-# xaringan
-
-Provides an R Markdown output format `xaringan::moon_reader` as a wrapper for remark.js, and you can use it in the YAML metadata, e.g.
-
-```yaml
----
-title: "A Cool Presentation"
-output:
-  xaringan::moon_reader:
-    yolo: true
-    nature:
-      autoplay: 30000
----
-```
-
-See the help page `?xaringan::moon_reader` for all possible options that you can use.
-
----
-
-# remark.js vs xaringan
-
-Some differences between using remark.js (left) and using **xaringan** (right):
-
-.pull-left[
-1. Start with a boilerplate HTML file;
-
-1. Plain Markdown;
-
-1. Write JavaScript to autoplay slides;
-
-1. Manually configure MathJax;
-
-1. Highlight code with `*`;
-
-1. Edit Markdown source and refresh browser to see updated slides;
-]
-
-.pull-right[
-1. Start with an R Markdown document;
-
-1. R Markdown (can embed R/other code chunks);
-
-1. Provide an option `autoplay`;
-
-1. MathJax just works;&lt;sup&gt;*&lt;/sup&gt;
-
-1. Highlight code with `{{}}`;
-
-1. The RStudio addin "Infinite Moon Reader" automatically refreshes slides on changes;
-]
-
-.footnote[[*] Not really. See next page.]
-
----
-
-# Math Expressions
-
-You can write LaTeX math expressions inside a pair of dollar signs, e.g. &amp;#36;\alpha+\beta$ renders `\(\alpha+\beta\)`. You can use the display style with double dollar signs:
-
-```
-$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
-```
-
-`$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$`
-
-Limitations:
-
-1. The source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting `$$` must appear in the very beginning of a line, followed immediately by a non-space character, and the ending `$$` must be at the end of a line, led by a non-space character;
-
-1. There should not be spaces after the opening `$` or before the closing `$`.
-
-1. Math does not work on the title slide (see [#61](https://github.com/yihui/xaringan/issues/61) for a workaround).
-
----
-
-# R Code
-
-
-```r
-# a boring regression
-fit = lm(dist ~ 1 + speed, data = cars)
-coef(summary(fit))
-```
-
-```
-#               Estimate Std. Error   t value     Pr(&gt;|t|)
-# (Intercept) -17.579095  6.7584402 -2.601058 1.231882e-02
-# speed         3.932409  0.4155128  9.463990 1.489836e-12
-```
-
-```r
-dojutsu = c('地爆天星', '天照', '加具土命', '神威', '須佐能乎', '無限月読')
-grep('天', dojutsu, value = TRUE)
-```
-
-```
-# [1] "地爆天星" "天照"
-```
-
----
-
-# R Plots
-
-
-```r
-par(mar = c(4, 4, 1, .1))
-plot(cars, pch = 19, col = 'darkgray', las = 1)
-abline(fit, lwd = 2)
-```
-
-![](qmss_r_teaching_slides_files/figure-html/cars-1.svg)&lt;!-- --&gt;
-
----
-
-# Tables
-
-If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,
-
-
-```r
-knitr::kable(head(iris), format = 'html')
-```
-
-&lt;table&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:right;"&gt; Sepal.Length &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Sepal.Width &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Petal.Length &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Petal.Width &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; Species &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 5.1 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.5 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 4.9 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.0 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 4.7 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.2 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.3 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 4.6 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.1 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.5 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 5.0 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.6 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 5.4 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.9 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.7 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
----
-
-# HTML Widgets
-
-I have not thoroughly tested HTML widgets against **xaringan**. Some may work well, and some may not. It is a little tricky.
-
-Similarly, the Shiny mode (`runtime: shiny`) does not work. I might get these issues fixed in the future, but these are not of high priority to me. I never turn my presentation into a Shiny app. When I need to demonstrate more complicated examples, I just launch them separately. It is convenient to share slides with other people when they are plain HTML/JS applications.
-
-See the next page for two HTML widgets.
-
----
-
-
-```r
-library(leaflet)
-leaflet() %&gt;% addTiles() %&gt;% setView(-93.65, 42.0285, zoom = 17)
-```
-
-<div id="htmlwidget-a4118592aeca08c5b308" style="width:100%;height:432px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a4118592aeca08c5b308">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[42.0285,-93.65],17,[]]},"evals":[],"jsHooks":[]}</script>
-
----
-
-
-```r
-DT::datatable(
-  head(iris, 10),
-  fillContainer = FALSE, options = list(pageLength = 8)
-)
-```
-
-<div id="htmlwidget-15c4d5702ac9e304a63f" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-15c4d5702ac9e304a63f">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
-
----
-
-# Some Tips
-
-- Do not forget to try the `yolo` option of `xaringan::moon_reader`.
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        yolo: true
-    ```
-
----
-
-# Some Tips
-
-- Slides can be automatically played if you set the `autoplay` option under `nature`, e.g. go to the next slide every 30 seconds in a lightning talk:
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        nature:
-          autoplay: 30000
-    ```
-
-- If you want to restart the play after it reaches the last slide, you may set the sub-option `loop` to TRUE, e.g.,
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        nature:
-          autoplay:
-            interval: 30000
-            loop: true
-    ```
-
----
-
-# Some Tips
-
-- A countdown timer can be added to every page of the slides using the `countdown` option under `nature`, e.g. if you want to spend one minute on every page when you give the talk, you can set:
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        nature:
-          countdown: 60000
-    ```
-
-    Then you will see a timer counting down from `01:00`, to `00:59`, `00:58`, ... When the time is out, the timer will continue but the time turns red.
-    
----
-
-# Some Tips
-
-- The title slide is created automatically by **xaringan**, but it is just another remark.js slide added before your other slides.
-
-    The title slide is set to `class: center, middle, inverse, title-slide` by default. You can change the classes applied to the title slide with the `titleSlideClass` option of `nature` (`title-slide` is always applied).
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        nature:
-          titleSlideClass: [top, left, inverse]
-    ```
-    
---
-
-- If you'd like to create your own title slide, disable **xaringan**'s title slide with the `seal = FALSE` option of `moon_reader`.
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        seal: false
-    ```
-
----
-
-# Some Tips
-
-- There are several ways to build incremental slides. See [this presentation](https://slides.yihui.org/xaringan/incremental.html) for examples.
-
-- The option `highlightLines: true` of `nature` will highlight code lines that start with `*`, or are wrapped in `{{ }}`, or have trailing comments `#&lt;&lt;`;
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        nature:
-          highlightLines: true
-    ```
-
-    See examples on the next page.
+&lt;img src="r-learners-encouragement.jpg" width="70%" style="display: block; margin: auto;" /&gt;
 
 ---
 
