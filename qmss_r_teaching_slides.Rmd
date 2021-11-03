@@ -36,7 +36,7 @@ style_duo(
   header_font_google = google_font("Gowun Batang"),
   text_font_google   = google_font("Assistant", "300", "300i"),
   code_font_google   = google_font("Roboto Mono"),
-  text_font_size = "1.5rem",
+  text_font_size = "2rem",
   title_slide_background_image = "r_first_then.png",
   title_slide_background_size = "40%",
   title_slide_background_position = "right",
@@ -52,34 +52,44 @@ style_duo(
 knitr::include_graphics("r_first_then.jpg")
 ```
 
-### Allison Horst (Bren School)
+## Allison Horst (Bren School)
 
-ahorst@ucsb.edu | Twitter: [@allison_horst](https://twitter.com/allison_horst) | Website: [allisonhorst.com](https://www.allisonhorst.com/)
+ahorst@ucsb.edu | Twitter: [@allison_horst](https://twitter.com/allison_horst) | Web: [allisonhorst.com](https://www.allisonhorst.com/)
 
 ---
 
-# Hello!
+# Hello! Me:
 
-- Assistant Teaching Professor (Bren) - Environmental Data Science
-- Me: 10 years teaching in R (introductory & advanced courses)
-- Students from diverse backgrounds
-- RStudio Artist-in-Residence (2019 - 2020)
+- `r emo::ji("leaf")` Assistant Teaching Professor - Environmental Data Science
+- `r emo::ji("teacher")` 10 years teaching in R (introductory & advanced courses)
+- `r emo::ji("ocean")` Bren & UCSB students from diverse backgrounds
+- `r emo::ji("palette")` RStudio Artist-in-Residence (2019 - 2020)
+- `r emo::ji("apple")` Workshops in industry, academia, learning communities
+
+---
+
+class: middle 
+
+## Random tip 1: add emoji in R Markdown
+
+Use the [emo](https://github.com/hadley/emo) package to add emoji in R Markdown.
+
+```{r}
+emo::ji("penguin")
+```
+
+Use `View(jis)` to check out all the specific emoji names. 
 
 ---
 
 # Why this talk?
 
-- Data science / coding skills ubiquitously valuable
-- More and more, instructors and TAs incorporating into classes
-- Teaching R (or any programming) can be its own beast
-- Here are some things that work well for me
+- `r emo::ji("graph")` Data science / coding skills ubiquitously valuable
+- `r emo::ji("teacher")` Instructors and TAs incorporating R into courses
+- `r emo::ji("skull")` Teaching R (or any programming) can be a beast
+- `r emo::ji("+1")` Here are some things that work well for me
 
-**Big side note:** There are *many* ways to teach R & data science well. I recommend following and keeping up to date with
-
-- Mine Cetinkaya-Rundel (Duke, RStudio)
-- Tiffany Timbers (UBC)
-- Greg Wilson
-
+**Important:** There are *many* good ways to teach R & data science. Pick what works well for you and your students! 
 
 ---
 
@@ -93,7 +103,7 @@ ahorst@ucsb.edu | Twitter: [@allison_horst](https://twitter.com/allison_horst) |
 
 - ### `r emo::ji("one")` lesson learned 
 
-```{r, echo = FALSE, out.width = "22%", fig.align = "center"}
+```{r, echo = FALSE, out.width = "20%", fig.align = "center"}
 knitr::include_graphics("go-r-teachers.png")
 ```
 
@@ -111,12 +121,6 @@ class: inverse, center, middle
 vec <- c(1, 5, 10, 20)
 
 vec[2]
-```
-
-```{r}
-sequence <- seq(from = 1, to = 5, by = 1)
-
-sequence * 4
 ```
 
 ```{r}
@@ -167,7 +171,7 @@ From the [Data Science at the Urban Institute](https://urban-institute.medium.co
 
 ---
 
-### Do your data viz worst
+## Example Activity 1: Do your data viz worst
 
 ```{r, echo = FALSE, out.width = "60%", echo = FALSE, fig.align = "center", fig.cap = "By Jessica West, Bren MESM Class of 2023"}
 knitr::include_graphics("simpsons-viz.png")
@@ -205,7 +209,7 @@ ggplot(data = space, aes(x = agency, y = launch_year)) +
 
 ---
 
-### Create artwork with an existing package
+## Example Activity 2: Make some aRt
 
 For example, Danielle Navarro's {flametree} package:
 
@@ -232,7 +236,7 @@ p
 
 ---
 
-Or create ggplot artwork, for example inspired by [Ijeamaka Anyene](https://ijeamaka-anyene.netlify.app/):
+Or create art with ggplot, inspired by [Ijeamaka Anyene](https://ijeamaka-anyene.netlify.app/):
 
 ```{r, out.width = "100%", echo = FALSE}
 knitr::include_graphics("ijeamaka-anyene-art.png")
@@ -251,53 +255,113 @@ knitr::include_graphics("decorate-r.jpg")
 ---
 
 
-### Minimal effort, big impact ideas:
+## Minimal effort, big impact ideas:
 
 - Update IDE theme `r emo::ji("paintbrush")`
 - R Markdown + visual editor `r emo::ji("eyes")`
 - Rainbow parentheses `r emo::ji("rainbow")`
-- R Projects
+- R Projects for easier file paths
 
+
+---
+
+## Random tip 2: wait you AREN'T using rainbow parentheses?
+
+### In RStudio (version >= 1.4)
+
+Tools > Global Options > Code > Display > Rainbow parentheses
+
+`r emo::ji("rainbow")``r emo::ji("heart")``r emo::ji("rainbow")``r emo::ji("heart")`
 
 ---
 
 
 ## 4. Write code together
 
-- You type & explain, then they type - line by line
-- Bring annotated key for yourself
-- Have keys available before and after for everyone
+- You type & talk / reinforce, then they type - **itsy by bitsy**
+- Bring annotated key for yourself! 
+- Make keys available* before and after for everyone
+
+* Keep this in mind in the next section of the talk! 
+
+---
+
+### Talking through code: example
+
+How might I teach this code with beginners who have been **exposed** to these functions, but who will absolutely not in any universe remember how to write them out for at least several weeks?  
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+
+chinstrap <- penguins %>% 
+  filter(species == "penguins") %>% 
+  mutate(body_mass_kg = body_mass_g / 1000) %>% 
+  rename(season_start = year)
+  
+  
+```
 
 
 ---
 
-## 3 tools that might make your life easier
+# 4-3-2-1...go outline!
 
-- {xaringan} for slides
-- GitHub Pages to share keys
-- {distill} for sturdy, simple websites
+- ### `r emo::ji("four")` strategies to welcome hesitant students `r emo::ji("check")`
+
+- ### `r emo::ji("three")` tools to make your life easier 
+
+- ### `r emo::ji("two")` platforms to minimize installation barriers
+
+- ### `r emo::ji("one")` lesson learned 
+
+```{r, echo = FALSE, out.width = "20%", fig.align = "center"}
+knitr::include_graphics("go-r-teachers.png")
+```
+
 
 ---
 
-class: center, middle
+## `r emo::ji("three")` tools that might make your life easier
 
-# xaringan
+- `r emo::ji("sword")` [{xaringan}](https://github.com/yihui/xaringan) for slides
+- `r emo::ji("computer")` [GitHub Pages](https://pages.github.com/) to share keys (deploy from any branch!)
+- `r emo::ji("drop")` [{distill}](https://rstudio.github.io/distill/website.html) for sturdy, simple websites
+
+---
+
+## xaringan
 
 ### /ʃaː.'riŋ.ɡan/
 
-Slide with code and outputs, easily updated.
+Slides with code and outputs, easily updated & shared.
+
+### (...because copying and pasting screenshots of code is a tedious bummer that doesn't model good practices for reproducibility & automation)
 
 ---
 
 # GitHub Pages to share lab keys
 
+---
+
+# 4-3-2-1...go outline!
+
+- ### `r emo::ji("four")` strategies to welcome hesitant students `r emo::ji("check")`
+
+- ### `r emo::ji("three")` tools to make your life easier `r emo::ji("check")`
+
+- ### `r emo::ji("two")` platforms to minimize installation barriers
+
+- ### `r emo::ji("one")` lesson learned 
+
+```{r, echo = FALSE, out.width = "20%", fig.align = "center"}
+knitr::include_graphics("go-r-teachers.png")
+```
 
 
 ---
 
-class: inverse, center, middle
-
-## 2 tools to avoid installation barriers
+## `r emo::ji("two")` tools to avoid installation barriers
 
 - {learnr}
 - RStudio Cloud
@@ -314,9 +378,26 @@ https://datasciencebox.org/access-r.html
 
 ---
 
+# 4-3-2-1...go outline!
+
+- ### `r emo::ji("four")` strategies to welcome hesitant students `r emo::ji("check")`
+
+- ### `r emo::ji("three")` tools to make your life easier `r emo::ji("check")` 
+
+- ### `r emo::ji("two")` platforms to minimize installation barriers `r emo::ji("check")`
+
+- ### `r emo::ji("one")` lesson learned 
+
+```{r, echo = FALSE, out.width = "20%", fig.align = "center"}
+knitr::include_graphics("go-r-teachers.png")
+```
+
+
+---
+
 ## `r emo::ji("one")` big lesson learned
 
-### Encouragement is teaching. 
+### The best outcome is curiosity and confidence. 
 
 ```{r, echo = FALSE, out.width = "70%", fig.align = "center"}
 knitr::include_graphics("r-learners-encouragement.jpg")
@@ -324,295 +405,32 @@ knitr::include_graphics("r-learners-encouragement.jpg")
 
 ---
 
-# Some Tips
+# 4-3-2-1...done!
 
+- ### `r emo::ji("four")` strategies to welcome hesitant students `r emo::ji("check")`
 
-.pull-left[
-An example using a leading `*`:
+- ### `r emo::ji("three")` tools to make your life easier `r emo::ji("check")` 
 
-    ```r
-    if (TRUE) {
-    ** message("Very important!")
-    }
-    ```
-Output:
-```r
-if (TRUE) {
-* message("Very important!")
-}
+- ### `r emo::ji("two")` platforms to minimize installation barriers `r emo::ji("check")`
+
+- ### `r emo::ji("one")` lesson learned 
+
+```{r, echo = FALSE, out.width = "20%", fig.align = "center"}
+knitr::include_graphics("go-r-teachers.png")
 ```
 
-This is invalid R code, so it is a plain fenced code block that is not executed.
-]
-
-.pull-right[
-An example using `{{}}`:
-
-````
-`r ''````{r tidy=FALSE}
-if (TRUE) {
-*{{ message("Very important!") }}
-}
-```
-````
-Output:
-```{r tidy=FALSE}
-if (TRUE) {
-{{ message("Very important!") }}
-}
-```
-
-It is valid R code so you can run it. Note that `{{}}` can wrap an R expression of multiple lines.
-]
 
 ---
 
-# Some Tips
+# Some starting points to learn more: 
 
-An example of using the trailing comment `#<<` to highlight lines:
+- Mine Cetinkaya-Rundel
+- Tiffany Timbers
+- Greg Wilson
 
-````markdown
-`r ''````{r tidy=FALSE}
-library(ggplot2)
-ggplot(mtcars) + 
-  aes(mpg, disp) + 
-  geom_point() +   #<<
-  geom_smooth()    #<<
-```
-````
+# I welcome you to reach out! 
 
-Output:
-
-```{r tidy=FALSE, eval=FALSE}
-library(ggplot2)
-ggplot(mtcars) + 
-  aes(mpg, disp) + 
-  geom_point() +   #<<
-  geom_smooth()    #<<
-```
+- ahorst@ucsb.edu
+- @allison_horst
 
 ---
-
-# Some Tips
-
-When you enable line-highlighting, you can also use the chunk option `highlight.output` to highlight specific lines of the text output from a code chunk. For example, `highlight.output = TRUE` means highlighting all lines, and `highlight.output = c(1, 3)` means highlighting the first and third line.
-
-````md
-`r ''````{r, highlight.output=c(1, 3)}
-head(iris)
-```
-````
-
-```{r, highlight.output=c(1, 3), echo=FALSE}
-head(iris)
-```
-
-Question: what does `highlight.output = c(TRUE, FALSE)` mean? (Hint: think about R's recycling of vectors)
-
----
-
-# Some Tips
-
-- To make slides work offline, you need to download a copy of remark.js in advance, because **xaringan** uses the online version by default (see the help page `?xaringan::moon_reader`).
-
-- You can use `xaringan::summon_remark()` to download the latest or a specified version of remark.js. By default, it is downloaded to `libs/remark-latest.min.js`.
-
-- Then change the `chakra` option in YAML to point to this file, e.g.
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        chakra: libs/remark-latest.min.js
-    ```
-
-- If you used Google fonts in slides (the default theme uses _Yanone Kaffeesatz_, _Droid Serif_, and _Source Code Pro_), they won't work offline unless you download or install them locally. The Heroku app [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts) can help you download fonts and generate the necessary CSS.
-
----
-
-# Macros
-
-- remark.js [allows users to define custom macros](https://github.com/yihui/xaringan/issues/80) (JS functions) that can be applied to Markdown text using the syntax `![:macroName arg1, arg2, ...]` or `![:macroName arg1, arg2, ...](this)`. For example, before remark.js initializes the slides, you can define a macro named `scale`:
-
-    ```js
-    remark.macros.scale = function (percentage) {
-      var url = this;
-      return '<img src="' + url + '" style="width: ' + percentage + '" />';
-    };
-    ```
-
-    Then the Markdown text
-
-    ```markdown
-    ![:scale 50%](image.jpg)
-    ```
-
-    will be translated to
-    
-    ```html
-    <img src="image.jpg" style="width: 50%" />
-    ```
-
----
-
-# Macros (continued)
-
-- To insert macros in **xaringan** slides, you can use the option `beforeInit` under the option `nature`, e.g.,
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        nature:
-          beforeInit: "macros.js"
-    ```
-
-    You save your remark.js macros in the file `macros.js`.
-
-- The `beforeInit` option can be used to insert arbitrary JS code before `remark.create()`. Inserting macros is just one of its possible applications.
-
----
-
-# CSS
-
-Among all options in `xaringan::moon_reader`, the most challenging but perhaps also the most rewarding one is `css`, because it allows you to customize the appearance of your slides using any CSS rules or hacks you know.
-
-You can see the default CSS file [here](https://github.com/yihui/xaringan/blob/master/inst/rmarkdown/templates/xaringan/resources/default.css). You can completely replace it with your own CSS files, or define new rules to override the default. See the help page `?xaringan::moon_reader` for more information.
-
----
-
-# CSS
-
-For example, suppose you want to change the font for code from the default "Source Code Pro" to "Ubuntu Mono". You can create a CSS file named, say, `ubuntu-mono.css`:
-
-```css
-@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
-
-.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-```
-
-Then set the `css` option in the YAML metadata:
-
-```yaml
-output:
-  xaringan::moon_reader:
-    css: ["default", "ubuntu-mono.css"]
-```
-
-Here I assume `ubuntu-mono.css` is under the same directory as your Rmd.
-
-See [yihui/xaringan#83](https://github.com/yihui/xaringan/issues/83) for an example of using the [Fira Code](https://github.com/tonsky/FiraCode) font, which supports ligatures in program code.
-
----
-
-# CSS (with Sass)
-
-**xaringan** also supports Sass support via **rmarkdown**. Suppose you want to use the same color for different elements, e.g., first heading and bold text. You can create a `.scss` file, say `mytheme.scss`, using the [sass](https://sass-lang.com/) syntax with variables:
-
-```scss
-$mycolor: #ff0000; 
-.remark-slide-content > h1 { color: $mycolor; }
-.remark-slide-content strong { color: $mycolor; }
-```
-
-Then set the `css` option in the YAML metadata using this file placed under the same directory as your Rmd:
-
-```yaml
-output:
-  xaringan::moon_reader:
-    css: ["default", "mytheme.scss"]
-```
-
-This requires **rmarkdown** >= 2.8 and the [**sass**](https://rstudio.github.io/sass/) package. You can learn more about **rmarkdown** and **sass** support in [this blog post](https://blog.rstudio.com/2021/04/15/2021-spring-rmd-news/#sass-and-scss-support-for-html-based-output) and in [**sass** overview vignette](https://rstudio.github.io/sass/articles/sass.html).
-
----
-
-# Themes
-
-Don't want to learn CSS? Okay, you can use some user-contributed themes. A theme typically consists of two CSS files `foo.css` and `foo-fonts.css`, where `foo` is the theme name. Below are some existing themes:
-
-```{r, R.options=list(width = 70)}
-names(xaringan:::list_css())
-```
-
----
-
-# Themes
-
-To use a theme, you can specify the `css` option as an array of CSS filenames (without the `.css` extensions), e.g.,
-
-```yaml
-output:
-  xaringan::moon_reader:
-    css: [default, metropolis, metropolis-fonts]
-```
-
-If you want to contribute a theme to **xaringan**, please read [this blog post](https://yihui.org/en/2017/10/xaringan-themes).
-
----
-class: inverse, middle, center
-background-image: url(https://upload.wikimedia.org/wikipedia/commons/3/39/Naruto_Shiki_Fujin.svg)
-background-size: contain
-
-# Naruto
-
----
-background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
-background-size: 100px
-background-position: 90% 8%
-
-# Sharingan
-
-The R package name **xaringan** was derived<sup>1</sup> from **Sharingan**, a dōjutsu in the Japanese anime _Naruto_ with two abilities:
-
-- the "Eye of Insight"
-
-- the "Eye of Hypnotism"
-
-I think a presentation is basically a way to communicate insights to the audience, and a great presentation may even "hypnotize" the audience.<sup>2,3</sup>
-
-.footnote[
-[1] In Chinese, the pronounciation of _X_ is _Sh_ /ʃ/ (as in _shrimp_). Now you should have a better idea of how to pronounce my last name _Xie_.
-
-[2] By comparison, bad presentations only put the audience to sleep.
-
-[3] Personally I find that setting background images for slides is a killer feature of remark.js. It is an effective way to bring visual impact into your presentations.
-]
-
----
-
-# Naruto terminology
-
-The **xaringan** package borrowed a few terms from Naruto, such as
-
-- [Sharingan](https://naruto.fandom.com/wiki/Sharingan) (写輪眼; the package name)
-
-- The [moon reader](https://naruto.fandom.com/wiki/Moon_Reader) (月読; an attractive R Markdown output format)
-
-- [Chakra](https://naruto.fandom.com/wiki/Chakra) (查克拉; the path to the remark.js library, which is the power to drive the presentation)
-
-- [Nature transformation](https://naruto.fandom.com/wiki/Nature_Transformation) (性質変化; transform the chakra by setting different options)
-
-- The [infinite moon reader](https://naruto.fandom.com/wiki/Infinite_Tsukuyomi) (無限月読; start a local web server to continuously serve your slides)
-
-- The [summoning technique](https://naruto.fandom.com/wiki/Summoning_Technique) (download remark.js from the web)
-
-You can click the links to know more about them if you want. The jutsu "Moon Reader" may seem a little evil, but that does not mean your slides are evil.
-
----
-
-class: center
-
-# Hand seals (印)
-
-Press `h` or `?` to see the possible ninjutsu you can use in remark.js.
-
-![](https://upload.wikimedia.org/wikipedia/commons/7/7e/Mudra-Naruto-KageBunshin.svg)
-
----
-
-class: center, middle
-
-# Thanks!
-
-Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
-
-The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](https://yihui.org/knitr/), and [R Markdown](https://rmarkdown.rstudio.com).
