@@ -13,6 +13,14 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## Talk slides: 
+
+```{r, echo = FALSE}
+knitr::include_url("https://allisonhorst.github.io/qmss-r-teaching-tools/qmss_r_teaching_slides.html#1")
+```
+
+
+
 ## Talk materials: 
 
 - Talk [slides](https://allisonhorst.github.io/qmss-r-teaching-tools/qmss_r_teaching_slides.html)
