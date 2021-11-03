@@ -13,11 +13,11 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r, echo = FALSE}
-xaringanExtra::embed_xaringan(
-  url = "qmss_r_teaching_slides.html",
-  ratio = "16:9",
-  border = "1px solid gainsboro"
-)
-```
+## Talk materials: 
+
+- Talk [slides](https://allisonhorst.github.io/qmss-r-teaching-tools/qmss_r_teaching_slides.html)
+- [GitHub repo](https://github.com/allisonhorst/qmss-r-teaching-tools) with all materials
+
+## Additional resources: 
+
 

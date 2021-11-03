@@ -1,0 +1,40 @@
+---
+title: "Lab Key Example"
+author: "Allison Horst"
+output: html_document
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+## Attach packages
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+## Explore the data
+
+Here, we'll make three different exploratory plots:
+
+- A scatterplot of flipper length versus body mass
+- A jitterplot of bill depth by species
+- A stacked bar graph of penguin counts by island
+
+```{r}
+ggplot(data = penguins) +
+  geom_point(aes(x = flipper_length_mm, y = body_mass_g))
+```
+
+```{r}
+ggplot(data = penguins) +
+  geom_jitter(aes(x = species, y = bill_depth_mm), width = 0.2)
+```
+
+```{r}
+ggplot(data = penguins) +
+  geom_bar(aes(x = island, fill = species))
+```
+

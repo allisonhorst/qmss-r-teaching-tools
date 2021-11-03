@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Teaching tips for R introductions</title>
+    <title>Teaching tips for gentle R introductions</title>
     <meta charset="utf-8" />
     <meta name="author" content="Allison Horst" />
     <script src="libs/header-attrs/header-attrs.js"></script>
@@ -9,19 +9,48 @@
   </head>
   <body>
     <textarea id="source">
-class: left, title-slide
 
-# Teaching tips for R introductions
-## QMSS Seminar 2021-11-04
-### Allison Horst
-### Bren School (UCSB)
+
+class: center, inverse
+
+
+
+
+
+# Teaching tips for gentle R introductions
+
+&lt;img src="r_first_then.jpg" width="70%" /&gt;
+
+### Allison Horst (Bren School)
+
+ahorst@ucsb.edu | Twitter: [@allison_horst](https://twitter.com/allison_horst) | Website: [allisonhorst.com](https://www.allisonhorst.com/)
 
 ---
 
+# Hello!
+
+- Assistant Teaching Professor (Bren) - Environmental Data Science
+- Me: 10 years teaching in R (introductory &amp; advanced courses)
+- Students from diverse backgrounds
+- RStudio Artist-in-Residence (2019 - 2020)
+
+---
+
+# Why this talk?
+
+- Data science / coding skills ubiquitously valuable
+- More and more, instructors and TAs incorporating into classes
+- Teaching R (or any programming) can be its own beast
+- Here are some things that work well for me
+
+**Big side note:** There are *many* ways to teach R &amp; data science well. I recommend following and keeping up to date with
+
+- Mine Cetinkaya-Rundel (Duke, RStudio)
+- Tiffany Timbers (UBC)
+- Greg Wilson
 
 
-
-
+---
 
 # 4-3-2-1...go outline!
 
@@ -32,6 +61,8 @@ class: left, title-slide
 - ### 2️⃣ platforms to minimize installation barriers
 
 - ### 1️⃣ lesson learned 
+
+&lt;img src="go-r-teachers.png" width="22%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -72,7 +103,7 @@ calc_volume &lt;- function(moles, R, temp, pressure) {
 }
 ```
 
-## 🤮
+## 🤢
 
 ---
 
@@ -87,9 +118,7 @@ class: left, middle
 
 "On the first day of the course...students are presented with a fully functional R Markdown document...that they can knit to produce an in-depth data visualization. Then, **by updating just one parameter in the R Markdown document, they can produce a new report with a new data visualization**."
 
-.footnote[
-From [A Fresh Look at Introductory Data Science](https://www.tandfonline.com/doi/full/10.1080/10691898.2020.1804497) by Mine Cetinkaya-Rundel and Victoria Ellison in the Journal of Statistics and Data Science Education (Vol. 29, 2021).
-]
+*From* [A Fresh Look at Introductory Data Science](https://www.tandfonline.com/doi/full/10.1080/10691898.2020.1804497) *by Mine Cetinkaya-Rundel and Victoria Ellison,  Journal of Statistics and Data Science Education (Vol. 29, 2021)*
 
 ---
 
@@ -157,70 +186,59 @@ ggplot(data = space, aes(x = agency, y = launch_year)) +
 For example, Danielle Navarro's {flametree} package:
 
 
-.footnote[
-See Danielle's summary of [generative art packages for R](https://blog.djnavarro.net/posts/2021-10-19_rtistry-posts/)
-]
-
----
-
-
 ```r
 library(flametree)
 
-# pick some colours
-shades &lt;- c("antiquewhite", "coral", "cyan4", "goldenrod")
-
-# data structure defining the trees
 dat &lt;- flametree_grow(time = 7, trees = 15)
 
-# draw the plot
 p &lt;- dat %&gt;% 
   flametree_plot(
     background = "gray10",
-    palette = shades, 
+    palette = c("antiquewhite", "coral", "cyan4", "goldenrod"), 
     style = "nativeflora"
   )
 ```
 
+---
+
+class: inverse, center, middle
+
+![](qmss_r_teaching_slides_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
 
 ---
 
-class: inverse, center
+Or create ggplot artwork, for example inspired by [Ijeamaka Anyene](https://ijeamaka-anyene.netlify.app/):
 
-![](qmss_r_teaching_slides_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
-
-
----
-
-### Draw a cartoon or storyboard of a function
-
-
+&lt;img src="ijeamaka-anyene-art.png" width="100%" /&gt;
 
 ---
 
 class: inverse
 
-## 3. Help them build a kitchen that feels good
+## 3. Help them personalize their kitchen
 
 &lt;img src="decorate-r.jpg" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
+
 ### Minimal effort, big impact ideas:
 
-- Update IDE theme
-- R Markdown + visual editor
-- Rainbow parentheses
+- Update IDE theme 🖌
+- R Markdown + visual editor 👀
+- Rainbow parentheses 🌈
 - R Projects
-- Don't underestimate the challenge of file paths
+
 
 ---
+
 
 ## 4. Write code together
 
 - You type &amp; explain, then they type - line by line
 - Bring annotated key for yourself
 - Have keys available before and after for everyone
+
 
 ---
 
@@ -237,6 +255,14 @@ class: center, middle
 # xaringan
 
 ### /ʃaː.'riŋ.ɡan/
+
+Slide with code and outputs, easily updated.
+
+---
+
+# GitHub Pages to share lab keys
+
+
 
 ---
 

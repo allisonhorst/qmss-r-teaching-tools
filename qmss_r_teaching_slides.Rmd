@@ -1,5 +1,5 @@
 ---
-title: "Teaching tips for R introductions"
+title: "Teaching tips for gentle R introductions"
 subtitle: "QMSS Seminar 2021-11-04"
 author: "Allison Horst"
 institute: "Bren School (UCSB)"
@@ -9,7 +9,7 @@ output:
       after_body: insert-logo.html
     lib_dir: libs
     css: xaringan-themer.css
-    seal: true
+    seal: false
     nature:
       ratio: '16:9'
       slideNumberFormat: '%current%' 
@@ -17,7 +17,9 @@ output:
       highlightLines: true
       countIncrementalSlides: false
       titleSlideClass: [left]
----
+--- 
+
+class: center, inverse
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
@@ -44,6 +46,43 @@ style_duo(
 )
 ```
 
+# Teaching tips for gentle R introductions
+
+```{r, echo = FALSE, out.width = "70%"}
+knitr::include_graphics("r_first_then.jpg")
+```
+
+### Allison Horst (Bren School)
+
+ahorst@ucsb.edu | Twitter: [@allison_horst](https://twitter.com/allison_horst) | Website: [allisonhorst.com](https://www.allisonhorst.com/)
+
+---
+
+# Hello!
+
+- Assistant Teaching Professor (Bren) - Environmental Data Science
+- Me: 10 years teaching in R (introductory & advanced courses)
+- Students from diverse backgrounds
+- RStudio Artist-in-Residence (2019 - 2020)
+
+---
+
+# Why this talk?
+
+- Data science / coding skills ubiquitously valuable
+- More and more, instructors and TAs incorporating into classes
+- Teaching R (or any programming) can be its own beast
+- Here are some things that work well for me
+
+**Big side note:** There are *many* ways to teach R & data science well. I recommend following and keeping up to date with
+
+- Mine Cetinkaya-Rundel (Duke, RStudio)
+- Tiffany Timbers (UBC)
+- Greg Wilson
+
+
+---
+
 # 4-3-2-1...go outline!
 
 - ### `r emo::ji("four")` strategies to welcome hesitant students
@@ -53,6 +92,10 @@ style_duo(
 - ### `r emo::ji("two")` platforms to minimize installation barriers
 
 - ### `r emo::ji("one")` lesson learned 
+
+```{r, echo = FALSE, out.width = "22%", fig.align = "center"}
+knitr::include_graphics("go-r-teachers.png")
+```
 
 ---
 
@@ -97,9 +140,7 @@ class: left, middle
 
 "On the first day of the course...students are presented with a fully functional R Markdown document...that they can knit to produce an in-depth data visualization. Then, **by updating just one parameter in the R Markdown document, they can produce a new report with a new data visualization**."
 
-.footnote[
-From [A Fresh Look at Introductory Data Science](https://www.tandfonline.com/doi/full/10.1080/10691898.2020.1804497) by Mine Cetinkaya-Rundel and Victoria Ellison in the Journal of Statistics and Data Science Education (Vol. 29, 2021).
-]
+*From* [A Fresh Look at Introductory Data Science](https://www.tandfonline.com/doi/full/10.1080/10691898.2020.1804497) *by Mine Cetinkaya-Rundel and Victoria Ellison,  Journal of Statistics and Data Science Education (Vol. 29, 2021)*
 
 ---
 
@@ -168,54 +209,40 @@ ggplot(data = space, aes(x = agency, y = launch_year)) +
 
 For example, Danielle Navarro's {flametree} package:
 
-
-.footnote[
-See Danielle's summary of [generative art packages for R](https://blog.djnavarro.net/posts/2021-10-19_rtistry-posts/)
-]
-
----
-
 ```{r}
-
 library(flametree)
 
-# pick some colours
-shades <- c("antiquewhite", "coral", "cyan4", "goldenrod")
-
-# data structure defining the trees
 dat <- flametree_grow(time = 7, trees = 15)
 
-# draw the plot
 p <- dat %>% 
   flametree_plot(
     background = "gray10",
-    palette = shades, 
+    palette = c("antiquewhite", "coral", "cyan4", "goldenrod"), 
     style = "nativeflora"
   )
-
 ```
-
 
 ---
 
-class: inverse, center
+class: inverse, center, middle
 
-```{r, echo = FALSE, fig.width = 12}
+```{r, echo = FALSE, fig.width = 16}
 p
 ```
 
-
 ---
 
-### Draw a cartoon or storyboard of a function
+Or create ggplot artwork, for example inspired by [Ijeamaka Anyene](https://ijeamaka-anyene.netlify.app/):
 
-
+```{r, out.width = "100%", echo = FALSE}
+knitr::include_graphics("ijeamaka-anyene-art.png")
+```
 
 ---
 
 class: inverse
 
-## 3. Help them build a kitchen that feels good
+## 3. Help them personalize their kitchen
 
 ```{r, out.width = "60%", fig.align = "center", echo = FALSE}
 knitr::include_graphics("decorate-r.jpg")
@@ -223,21 +250,24 @@ knitr::include_graphics("decorate-r.jpg")
 
 ---
 
+
 ### Minimal effort, big impact ideas:
 
-- Update IDE theme
-- R Markdown + visual editor
-- Rainbow parentheses
+- Update IDE theme `r emo::ji("paintbrush")`
+- R Markdown + visual editor `r emo::ji("eyes")`
+- Rainbow parentheses `r emo::ji("rainbow")`
 - R Projects
-- Don't underestimate the challenge of file paths
+
 
 ---
+
 
 ## 4. Write code together
 
 - You type & explain, then they type - line by line
 - Bring annotated key for yourself
 - Have keys available before and after for everyone
+
 
 ---
 
@@ -254,6 +284,14 @@ class: center, middle
 # xaringan
 
 ### /ʃaː.'riŋ.ɡan/
+
+Slide with code and outputs, easily updated.
+
+---
+
+# GitHub Pages to share lab keys
+
+
 
 ---
 
