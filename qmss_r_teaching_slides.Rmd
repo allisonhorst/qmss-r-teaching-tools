@@ -25,6 +25,8 @@ class: center, inverse
 options(htmltools.dir.version = FALSE)
 library(emo)
 library(tidyverse)
+library(flair)
+library(palmerpenguins)
 ```
 
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
@@ -87,6 +89,7 @@ Use `View(jis)` to check out all the specific emoji names.
 - `r emo::ji("graph")` Data science / coding skills ubiquitously valuable
 - `r emo::ji("teacher")` Instructors and TAs incorporating R into courses
 - `r emo::ji("skull")` Teaching R (or any programming) can be a beast
+- `r emo::ji("clap")` A lot of things that are useful for teaching are more generally useful
 - `r emo::ji("+1")` Here are some things that work well for me
 
 **Important:** There are *many* good ways to teach R & data science. Pick what works well for you and your students! 
@@ -133,10 +136,13 @@ calc_volume <- function(moles, R, temp, pressure) {
 
 ---
 
-## Create early wins
+class: inverse
 
-- A cool visualization they can customize
-- Low-effort, high-impact updates in R Markdown
+## 1. Create early wins
+
+```{r, echo = FALSE, out.width = "50%", fig.align = "center"}
+knitr::include_graphics("welcome_to_rstats.png")
+```
 
 ---
 
@@ -278,7 +284,7 @@ Tools > Global Options > Code > Display > Rainbow parentheses
 
 ## 4. Write code together
 
-- You type & talk / reinforce, then they type - **itsy by bitsy**
+- You type & talk / reinforce, then they type - **itsy by bitsy** `r emo::ji("spider")`
 - Bring annotated key for yourself! 
 - Make keys available* before and after for everyone
 
@@ -326,7 +332,7 @@ knitr::include_graphics("go-r-teachers.png")
 
 - `r emo::ji("sword")` [{xaringan}](https://github.com/yihui/xaringan) for slides
 - `r emo::ji("computer")` [GitHub Pages](https://pages.github.com/) to share keys (deploy from any branch!)
-- `r emo::ji("drop")` [{distill}](https://rstudio.github.io/distill/website.html) for sturdy, simple websites
+- `r emo::ji("sparkle")` [{flair}](https://cran.r-project.org/web/packages/flair/vignettes/how_to_flair.html): add some flair to you code
 
 ---
 
@@ -340,7 +346,92 @@ Slides with code and outputs, easily updated & shared.
 
 ---
 
-# GitHub Pages to share lab keys
+## These slides are all made in R Markdown
+
+Let's see how! 
+
+```{r, eval = FALSE}
+install.packages("xaringan")
+```
+
+New R Markdown > From Template > Xaringan > `r emo::ji("knit")` !
+
+
+
+---
+
+## [GitHub Pages](https://pages.github.com/) to share lab keys
+
+### `r emo::ji("tired")` Tired: Save, upload, edit, delete, reupload, repeat.
+
+### `r emo::ji("excited")` Wired: Edit, push.
+
+---
+
+## Using GitHub pages to make any .Rmd a web page
+
+In a GitHub repo named `bananas` (owned by user "giraffe"), deploying from the main branch (Settings > Pages > Deploy from branch):
+
+- A file named `index.html` will be live at `giraffe.github.io/bananas`
+- Any other html will be published with file name as an added slug (e.g. `giraffe.github.io/bananas/taco.html`)
+
+---
+
+## So if your repo looks like this: 
+
+```{r, echo = FALSE, out.width = "70%"}
+knitr::include_graphics("repo-gh-pages.png")
+```
+
+---
+
+## And you've done this:
+
+Settings > Pages > (update where it deploys from)
+
+```{r, echo = FALSE, out.width = "80%"}
+knitr::include_graphics("gh-pages.png")
+```
+
+---
+
+## Then those .htmls will be live at:
+
+- `username.github.io/repo-name` 
+- `username.github.io/repo-name/file-name.html` 
+
+For the examples shown on previously slides (username = "allisonhorst", repo name = "gh-pages-demo") and with two files, index.html and demo-key.html, those will be published respectively at: 
+
+- allisonhorst.github.io/gh-pages-demo/
+- allisonhorst.github.io/gh-pages-demo/demo-key.html
+
+---
+
+## [{flair}](https://cran.r-project.org/web/packages/flair/vignettes/how_to_flair.html)
+
+The {flair} package in R by [Kelly Bodwin](https://www.kelly-bodwin.com/) let's you add useful highlighting to code! 
+
+---
+
+class: inverse
+
+### flair example
+
+```{r flair_example, include = FALSE}
+
+penguins %>% 
+  group_by(species) %>% 
+  summarize(mean_flipper = mean(flipper_length_mm, na.rm = TRUE))
+
+```
+
+```{r}
+decorate("flair_example") %>% 
+  flair("penguins", background = "orange") %>%
+  flair("group_by", background = "darkorchid") %>% 
+  flair("summarize", color = "cyan") %>% 
+  knit_print.with_flair()
+```
 
 ---
 
@@ -358,7 +449,6 @@ Slides with code and outputs, easily updated & shared.
 knitr::include_graphics("go-r-teachers.png")
 ```
 
-
 ---
 
 ## `r emo::ji("two")` tools to avoid installation barriers
@@ -368,7 +458,33 @@ knitr::include_graphics("go-r-teachers.png")
 
 ---
 
-## learnr tutorials
+## Example learnr tutorial
+
+Missing data tutorial: https://allisonhorst.shinyapps.io/missingexplorer/
+
+```{r, echo = FALSE, out.width = "60%", fig.align = "center"}
+knitr::include_graphics("missing-home.png")
+```
+
+---
+
+Include activities, examples, quizzes, hints, and more!
+
+```{r, echo = FALSE, out.width = "50%", fig.align = "center"}
+knitr::include_graphics("missing-activities.png")
+```
+
+---
+
+## You can make one too! 
+
+- Install the {learnr} package
+- New file > R Markdown > From Template > learnr tutorial
+
+```{r, echo = FALSE, out.width = "40%", fig.align = "center"}
+knitr::include_graphics("pam-gif.gif")
+```
+
 
 ---
 
@@ -424,13 +540,14 @@ knitr::include_graphics("go-r-teachers.png")
 
 # Some starting points to learn more: 
 
-- Mine Cetinkaya-Rundel
-- Tiffany Timbers
-- Greg Wilson
+- [Mine Cetinkaya-Rundel](https://mine-cr.com/)
+- [Tiffany Timbers](https://www.tiffanytimbers.com/)
+- [Greg Wilson](https://third-bit.com/)
 
 # I welcome you to reach out! 
 
 - ahorst@ucsb.edu
-- @allison_horst
+- Twitter: @allison_horst
+- Web: www.allisonhorst.com
 
 ---
