@@ -593,9 +593,9 @@ knitr::include_graphics("go-r-teachers.png")
 
 class: inverse, center
 
-# A few (of many) teachers I learn from: 
+## Some teachers I learn from: 
 
-[Mine Cetinkaya-Rundel](https://mine-cr.com/) | [Tiffany Timbers](https://www.tiffanytimbers.com/) | [Greg Wilson](https://third-bit.com/)
+[Mine Cetinkaya-Rundel](https://mine-cr.com/) | [Tiffany Timbers](https://www.tiffanytimbers.com/) | [Julia Lowndes](https://jules32.github.io/) | [Jenny Bryan](https://jennybryan.org/) | [Alison Hill](https://www.apreshill.com/) | [Greg Wilson](https://third-bit.com/) | [Kelly Bodwin](https://www.kelly-bodwin.com/) ... + many more
 
 # I welcome you to reach out! 
 
