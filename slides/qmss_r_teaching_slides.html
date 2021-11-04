@@ -27,9 +27,11 @@ ahorst@ucsb.edu | Twitter: [@allison_horst](https://twitter.com/allison_horst) |
 
 ---
 
-# Hello! Me:
+# Hello! 
 
-- 🔰 Assistant Teaching Professor - Environmental Data Science
+## A little about me:
+
+- 🍁 Assistant Teaching Professor - Environmental Data Science
 - 👩‍🏫 10 years teaching in R (introductory &amp; advanced courses)
 - 🌊 Bren &amp; UCSB students from diverse backgrounds
 - 👨‍🎨 RStudio Artist-in-Residence (2019 - 2020)
@@ -59,10 +61,9 @@ Use `View(jis)` to check out all the specific emoji names.
 # Why this talk?
 
 - 📉 Data science / coding skills ubiquitously valuable
-- 👩‍🏫 Instructors and TAs incorporating R into courses
+- 👨‍🏫 Instructors and TAs incorporating R into courses
 - 💀 Teaching R (or any programming) can be a beast
-- 👏 A lot of things that are useful for teaching are more generally useful
-- 👍 Here are some things that work well for me
+- 👍 A lot of things that are useful for teaching are also useful for data analysis, communication &amp; more 
 
 **Important:** There are *many* good ways to teach R &amp; data science. Pick what works well for you and your students! 
 
@@ -82,9 +83,12 @@ Use `View(jis)` to check out all the specific emoji names.
 
 ---
 
-class: inverse, center, middle
+class: inverse
 
 # 4️⃣ strategies to welcome hesitant students
+
+&lt;img src="scary-r.png" width="80%" style="display: block; margin: auto;" /&gt;
+
 
 ---
 
@@ -108,7 +112,7 @@ calc_volume &lt;- function(moles, R, temp, pressure) {
 }
 ```
 
-## 🤮
+## 🤢
 
 ---
 
@@ -209,13 +213,7 @@ p &lt;- dat %&gt;%
 
 class: inverse, center, middle
 
-![](qmss_r_teaching_slides_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
-
----
-
-Or create art with ggplot, inspired by [Ijeamaka Anyene](https://ijeamaka-anyene.netlify.app/):
-
-&lt;img src="ijeamaka-anyene-art.png" width="100%" /&gt;
+![](qmss_r_teaching_slides_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -238,24 +236,25 @@ class: inverse
 
 ---
 
-## Random tip 2: wait you AREN'T using rainbow parentheses?
+## Random tip 2
 
-### In RStudio (version &gt;= 1.4)
+## ...wait you AREN'T using rainbow parentheses?
 
-Tools &gt; Global Options &gt; Code &gt; Display &gt; Rainbow parentheses
+In RStudio (version &gt;= 1.4): *Tools &gt; Global Options &gt; Code &gt; Display &gt; Rainbow parentheses*
 
-🌈❤️🌈❤️
+&lt;img src="rainbow-parentheses.png" width="90%" /&gt;
+
 
 ---
 
 
 ## 4. Write code together
 
-- You type &amp; talk / reinforce, then they type - **itsy by bitsy** 🕷
+- You talk, ask &amp; type, then they type - bit by bit
 - Bring annotated key for yourself! 
 - Make keys available* before and after for everyone
 
-* Keep this in mind in the next section of the talk! 
+\*Keep this in mind in the next section of the talk! 
 
 ---
 
@@ -269,11 +268,54 @@ library(tidyverse)
 library(palmerpenguins)
 
 chinstrap &lt;- penguins %&gt;% 
-  filter(species == "penguins") %&gt;% 
+  filter(species == "Chinstrap") %&gt;% 
   mutate(body_mass_kg = body_mass_g / 1000) %&gt;% 
   rename(season_start = year)
 ```
 
+---
+
+## Random tip 3: penguins with a purpose! 
+
+.pull-left[
+&lt;img src="palmerpenguins.png" width="60%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+
+&lt;font size=5.5&gt;
+The &lt;i&gt;iris&lt;/i&gt; dataset was published by RA Fisher in &lt;i&gt;The Annals of Eugenics&lt;/i&gt; (1936). The penguins data in the {palmerpenguins} R package is a near drop-in replacement, plus: 
+
+&lt;ul&gt;
+  &lt;li&gt; No eugenics history
+  &lt;li&gt; Recent data (2007 - 2009) by Dr. Kristen B. Gorman
+  &lt;li&gt; Unequal sample size + some missing values
+  &lt;li&gt; Complete metadata
+&lt;/ul&gt;
+
+&lt;/font&gt;
+]
+
+Learn more! [allisonhorst.github.io/palmerpenguins/](https://allisonhorst.github.io/palmerpenguins/)
+
+---
+
+## Also comes with art + pictures! 
+
+"Everybody loves penguins." - Dr. Kristen Gorman
+
+.pull-left[
+
+&lt;img src="penguins.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+
+&lt;img src="gorman-penguins.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+See [more photos](https://docs.google.com/presentation/d/1DFJLXYRJ2kWw6AFkJu7MclFPr8zkqD-PHh5bs4xcr3Y/edit) of the Palmer Archipelago penguins!
 
 ---
 
@@ -294,13 +336,13 @@ chinstrap &lt;- penguins %&gt;%
 
 ## 3️⃣ tools that might make your life easier
 
-- 🤺 [{xaringan}](https://github.com/yihui/xaringan) for slides
-- 💻 [GitHub Pages](https://pages.github.com/) to share keys (deploy from any branch!)
-- ❇️ [{flair}](https://cran.r-project.org/web/packages/flair/vignettes/how_to_flair.html): add some flair to you code
+1. 🌀 [{xaringan}](https://github.com/yihui/xaringan) for slides
+2. 💻 [GitHub Pages](https://pages.github.com/) to share keys (deploy from any branch!)
+3. 📖 Use existing teaching materials
 
 ---
 
-## xaringan
+## [{xaringan}](https://github.com/yihui/xaringan) by Yihui Xie
 
 ### /ʃaː.'riŋ.ɡan/
 
@@ -321,11 +363,9 @@ install.packages("xaringan")
 
 New R Markdown &gt; From Template &gt; Xaringan &gt; 🧶 !
 
-
-
 ---
 
-## [GitHub Pages](https://pages.github.com/) to share lab keys
+## 2. [GitHub Pages](https://pages.github.com/) to share lab keys
 
 ### 😩 Tired: Save, upload, edit, delete, reupload, repeat.
 
@@ -368,42 +408,13 @@ For the examples shown on previously slides (username = "allisonhorst", repo nam
 
 ---
 
-## [{flair}](https://cran.r-project.org/web/packages/flair/vignettes/how_to_flair.html)
+## 3. Use existing teaching materials
 
-The {flair} package in R by [Kelly Bodwin](https://www.kelly-bodwin.com/) let's you add useful highlighting to code! 
-
----
-
-class: inverse
-
-### flair example
-
-
-
-
-```r
-decorate("flair_example") %&gt;% 
-  flair("penguins", background = "orange") %&gt;%
-  flair("group_by", background = "darkorchid") %&gt;% 
-  flair("summarize", color = "cyan") %&gt;% 
-  knit_print.with_flair()
-```
-
-
-
-
-&lt;code class ='r hljs remark-code'&gt;&lt;span style='background-color:orange'&gt;penguins&lt;/span&gt; %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:darkorchid'&gt;group_by&lt;/span&gt;(species) %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='color:cyan'&gt;summarize&lt;/span&gt;(mean_flipper = mean(flipper_length_mm, na.rm = TRUE))&lt;/code&gt;
-
-```
-
-## # A tibble: 3 × 2
-##   species   mean_flipper
-##   &lt;fct&gt;            &lt;dbl&gt;
-## 1 Adelie            190.
-## 2 Chinstrap         196.
-## 3 Gentoo            217.
-
-```
+- [{swirl}](https://swirlstats.com/) package to "learn R, in R" with existing lessons, or you can modify / create your own lessons! 
+- Tutorials in RStudio
+- [Data science in a box](https://datasciencebox.org/index.html) by Mine Cetinkaya-Rundel
+- [The big book of R](https://www.bigbookofr.com/) by Oscar Baruffa
+- [R for Excel Users](https://rstudio-conf-2020.github.io/r-for-excel/) 2-day workshop by Lowndes &amp; Horst
 
 ---
 
@@ -421,10 +432,18 @@ decorate("flair_example") %&gt;%
 
 ---
 
-## 2️⃣ tools to avoid installation barriers
+## 2️⃣ platforms to minimize installation barriers
 
 - {learnr}
 - RStudio Cloud
+
+---
+
+## [{learnr}](https://rstudio.github.io/learnr/)
+
+"The learnr package makes it easy to turn any R Markdown document into an interactive tutorial. Tutorials consist of content along with interactive components for checking and reinforcing understanding. 
+
+Tutorials automatically preserve work done within them, so if a user works on a few exercises or questions and returns to the tutorial later they can pick up right where they left off."
 
 ---
 
@@ -436,9 +455,11 @@ Missing data tutorial: https://allisonhorst.shinyapps.io/missingexplorer/
 
 ---
 
-Include activities, examples, quizzes, hints, and more!
+Include activities, examples, quizzes, hints, videos and more!
 
-&lt;img src="missing-activities.png" width="50%" style="display: block; margin: auto;" /&gt;
+&lt;img src="missing-activities.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+See a bunch of other examples here: https://rstudio.github.io/learnr/
 
 ---
 
@@ -449,12 +470,25 @@ Include activities, examples, quizzes, hints, and more!
 
 &lt;img src="pam-gif.gif" width="40%" style="display: block; margin: auto;" /&gt;
 
-
 ---
 
 ## RStudio Cloud
 
-https://datasciencebox.org/access-r.html
+- Share materials in an R project with a link! 
+- No git / GitHub needed
+
+"RStudio Cloud is a hosted version of RStudio in the cloud that makes it easy for professionals, hobbyists, trainers, teachers and students to do, share, teach and learn data science using R.
+
+Create your analyses using RStudio directly from your browser - there is no software to install and nothing to configure on your computer."
+
+### Let's check it out! 
+
+---
+
+### Don't miss out on the [RStudio Cloud primers](https://rstudio.cloud/learn/primers)
+
+&lt;img src="rstudio-cloud-primers.png" width="75%" style="display: block; margin: auto;" /&gt;
+
 
 ---
 
@@ -470,14 +504,13 @@ https://datasciencebox.org/access-r.html
 
 &lt;img src="go-r-teachers.png" width="20%" style="display: block; margin: auto;" /&gt;
 
-
 ---
 
 ## 1️⃣ big lesson learned
 
-### The best outcome is curiosity and confidence. 
+### Curiosity and resourcefulness are learning outcomes.
 
-&lt;img src="r-learners-encouragement.jpg" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;img src="code-hero.png" width="40%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -489,26 +522,23 @@ https://datasciencebox.org/access-r.html
 
 - ### 2️⃣ platforms to minimize installation barriers ✅
 
-- ### 1️⃣ lesson learned 
+- ### 1️⃣ lesson learned ✅
 
 &lt;img src="go-r-teachers.png" width="20%" style="display: block; margin: auto;" /&gt;
 
-
 ---
 
-# Some starting points to learn more: 
+class: inverse, center
 
-- [Mine Cetinkaya-Rundel](https://mine-cr.com/)
-- [Tiffany Timbers](https://www.tiffanytimbers.com/)
-- [Greg Wilson](https://third-bit.com/)
+# A few (of many) teachers I learn from: 
+
+[Mine Cetinkaya-Rundel](https://mine-cr.com/) | [Tiffany Timbers](https://www.tiffanytimbers.com/) | [Greg Wilson](https://third-bit.com/)
 
 # I welcome you to reach out! 
 
-- ahorst@ucsb.edu
-- Twitter: @allison_horst
-- Web: www.allisonhorst.com
+ahorst@ucsb.edu | @allison_horst | www.allisonhorst.com
 
----
+## Thank you QMSS!
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

@@ -1,31 +1,53 @@
 ---
-title: "Tips & tools for teaching R with beginners"
+title: "Tips & tools for gentle R introductions"
 subtitle: "QMSS Seminar 2021-11-04"
 author: "Allison Horst"
 output: 
   html_document: 
     css: style.css
-    toc: yes
-    toc_float: true
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(here)
 ```
 
-## Talk slides: 
+- Twitter: [\@allison_horst](https://twitter.com/allison_horst)
+
+- Email: ahorst@ucsb.edu
+
+- Web: [allisonhorst.com](https://www.allisonhorst.com/)
 
 ```{r, echo = FALSE}
-knitr::include_url("https://allisonhorst.github.io/qmss-r-teaching-tools/qmss_r_teaching_slides.html#1")
+knitr::include_graphics(here("slides","happy-r.png"))
 ```
 
+## Talk slides 
 
+```{r, echo = FALSE}
+knitr::include_url("https://allisonhorst.github.io/qmss-r-teaching-tools/slides/qmss_r_teaching_slides.html#1")
+```
 
-## Talk materials: 
+## Talk materials
 
-- Talk [slides](https://allisonhorst.github.io/qmss-r-teaching-tools/qmss_r_teaching_slides.html)
+- Talk [slides](https://allisonhorst.github.io/qmss-r-teaching-tools/slides/qmss_r_teaching_slides.html)
 - [GitHub repo](https://github.com/allisonhorst/qmss-r-teaching-tools) with all materials
 
-## Additional resources: 
+## Resources in this talk 
+
+- [{emo}](https://github.com/hadley/emo) package (by Hadley Wickham): add emoji in R Markdown
+- [Danielle Navarro](https://djnavarro.net/) - great teacher, artist, packages for generative art in R! 
+- [A Fresh Look at Introductory Data Science](https://www.tandfonline.com/doi/full/10.1080/10691898.2020.1804497) by Mine Cetinkaya-Rundel and Victoria Ellison
+- The [{palmerpenguins}](https://allisonhorst.github.io/palmerpenguins/) R package
+- More [photos of the Palmer Archipelago penguins](https://docs.google.com/presentation/d/1DFJLXYRJ2kWw6AFkJu7MclFPr8zkqD-PHh5bs4xcr3Y/edit)
+- [{swirl}](https://swirlstats.com/) package to "learn R, in R" with existing lessons, or you can modify / create your own lessons! 
+- [Data science in a box](https://datasciencebox.org/index.html) by Mine Cetinkaya-Rundel
+- [The big book of R](https://www.bigbookofr.com/) by Oscar Baruffa
+- [R for Excel Users](https://rstudio-conf-2020.github.io/r-for-excel/) 2-day workshop by Lowndes & Horst
+- [{learnr}](https://rstudio.github.io/learnr/) for interactive lessons without installation
+- [RStudio Cloud](https://rstudio.cloud/)
+
+
 
 

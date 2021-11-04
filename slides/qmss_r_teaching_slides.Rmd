@@ -27,6 +27,7 @@ library(emo)
 library(tidyverse)
 library(flair)
 library(palmerpenguins)
+library(here)
 ```
 
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
@@ -38,7 +39,7 @@ style_duo(
   header_font_google = google_font("Gowun Batang"),
   text_font_google   = google_font("Assistant", "300", "300i"),
   code_font_google   = google_font("Roboto Mono"),
-  text_font_size = "2rem",
+  text_font_size = "1.6rem",
   title_slide_background_image = "r_first_then.png",
   title_slide_background_size = "40%",
   title_slide_background_position = "right",
@@ -60,7 +61,9 @@ ahorst@ucsb.edu | Twitter: [@allison_horst](https://twitter.com/allison_horst) |
 
 ---
 
-# Hello! Me:
+# Hello! 
+
+## A little about me:
 
 - `r emo::ji("leaf")` Assistant Teaching Professor - Environmental Data Science
 - `r emo::ji("teacher")` 10 years teaching in R (introductory & advanced courses)
@@ -89,8 +92,7 @@ Use `View(jis)` to check out all the specific emoji names.
 - `r emo::ji("graph")` Data science / coding skills ubiquitously valuable
 - `r emo::ji("teacher")` Instructors and TAs incorporating R into courses
 - `r emo::ji("skull")` Teaching R (or any programming) can be a beast
-- `r emo::ji("clap")` A lot of things that are useful for teaching are more generally useful
-- `r emo::ji("+1")` Here are some things that work well for me
+- `r emo::ji("+1")` A lot of things that are useful for teaching are also useful for data analysis, communication & more 
 
 **Important:** There are *many* good ways to teach R & data science. Pick what works well for you and your students! 
 
@@ -112,9 +114,14 @@ knitr::include_graphics("go-r-teachers.png")
 
 ---
 
-class: inverse, center, middle
+class: inverse
 
 # `r emo::ji("four")` strategies to welcome hesitant students
+
+```{r, echo = FALSE, fig.align = "center", out.width = "80%"}
+knitr::include_graphics("scary-r.png")
+```
+
 
 ---
 
@@ -242,14 +249,6 @@ p
 
 ---
 
-Or create art with ggplot, inspired by [Ijeamaka Anyene](https://ijeamaka-anyene.netlify.app/):
-
-```{r, out.width = "100%", echo = FALSE}
-knitr::include_graphics("ijeamaka-anyene-art.png")
-```
-
----
-
 class: inverse
 
 ## 3. Help them personalize their kitchen
@@ -271,24 +270,27 @@ knitr::include_graphics("decorate-r.jpg")
 
 ---
 
-## Random tip 2: wait you AREN'T using rainbow parentheses?
+## Random tip 2
 
-### In RStudio (version >= 1.4)
+## ...wait you AREN'T using rainbow parentheses?
 
-Tools > Global Options > Code > Display > Rainbow parentheses
+In RStudio (version >= 1.4): *Tools > Global Options > Code > Display > Rainbow parentheses*
 
-`r emo::ji("rainbow")``r emo::ji("heart")``r emo::ji("rainbow")``r emo::ji("heart")`
+```{r, echo = FALSE, out.width = "90%"}
+knitr::include_graphics("rainbow-parentheses.png")
+```
+
 
 ---
 
 
 ## 4. Write code together
 
-- You type & talk / reinforce, then they type - **itsy by bitsy** `r emo::ji("spider")`
+- You talk, ask & type, then they type - bit by bit
 - Bring annotated key for yourself! 
 - Make keys available* before and after for everyone
 
-* Keep this in mind in the next section of the talk! 
+\*Keep this in mind in the next section of the talk! 
 
 ---
 
@@ -301,13 +303,61 @@ library(tidyverse)
 library(palmerpenguins)
 
 chinstrap <- penguins %>% 
-  filter(species == "penguins") %>% 
+  filter(species == "Chinstrap") %>% 
   mutate(body_mass_kg = body_mass_g / 1000) %>% 
   rename(season_start = year)
   
-  
 ```
 
+---
+
+## Random tip 3: penguins with a purpose! 
+
+.pull-left[
+```{r, echo = FALSE, out.width = "60%", fig.align = "center"}
+knitr::include_graphics("palmerpenguins.png")
+```
+]
+
+.pull-right[
+
+<font size=5.5>
+The <i>iris</i> dataset was published by RA Fisher in <i>The Annals of Eugenics</i> (1936). The penguins data in the {palmerpenguins} R package is a near drop-in replacement, plus: 
+
+<ul>
+  <li> No eugenics history
+  <li> Recent data (2007 - 2009) by Dr. Kristen B. Gorman
+  <li> Unequal sample size + some missing values
+  <li> Complete metadata
+</ul>
+
+</font>
+]
+
+Learn more! [allisonhorst.github.io/palmerpenguins/](https://allisonhorst.github.io/palmerpenguins/)
+
+---
+
+## Also comes with art + pictures! 
+
+"Everybody loves penguins." - Dr. Kristen Gorman
+
+.pull-left[
+
+```{r, echo = FALSE, out.width = "100%", fig.align = "center"}
+knitr::include_graphics("penguins.png")
+```
+]
+
+.pull-right[
+
+```{r, echo = FALSE, out.width = "100%", fig.align = "center"}
+knitr::include_graphics("gorman-penguins.png")
+```
+
+]
+
+See [more photos](https://docs.google.com/presentation/d/1DFJLXYRJ2kWw6AFkJu7MclFPr8zkqD-PHh5bs4xcr3Y/edit) of the Palmer Archipelago penguins!
 
 ---
 
@@ -330,13 +380,13 @@ knitr::include_graphics("go-r-teachers.png")
 
 ## `r emo::ji("three")` tools that might make your life easier
 
-- `r emo::ji("sword")` [{xaringan}](https://github.com/yihui/xaringan) for slides
-- `r emo::ji("computer")` [GitHub Pages](https://pages.github.com/) to share keys (deploy from any branch!)
-- `r emo::ji("sparkle")` [{flair}](https://cran.r-project.org/web/packages/flair/vignettes/how_to_flair.html): add some flair to you code
+1. `r emo::ji("swirl")` [{xaringan}](https://github.com/yihui/xaringan) for slides
+2. `r emo::ji("computer")` [GitHub Pages](https://pages.github.com/) to share keys (deploy from any branch!)
+3. `r emo::ji("book")` Use existing teaching materials
 
 ---
 
-## xaringan
+## [{xaringan}](https://github.com/yihui/xaringan) by Yihui Xie
 
 ### /ʃaː.'riŋ.ɡan/
 
@@ -356,11 +406,9 @@ install.packages("xaringan")
 
 New R Markdown > From Template > Xaringan > `r emo::ji("knit")` !
 
-
-
 ---
 
-## [GitHub Pages](https://pages.github.com/) to share lab keys
+## 2. [GitHub Pages](https://pages.github.com/) to share lab keys
 
 ### `r emo::ji("tired")` Tired: Save, upload, edit, delete, reupload, repeat.
 
@@ -407,31 +455,13 @@ For the examples shown on previously slides (username = "allisonhorst", repo nam
 
 ---
 
-## [{flair}](https://cran.r-project.org/web/packages/flair/vignettes/how_to_flair.html)
+## 3. Use existing teaching materials
 
-The {flair} package in R by [Kelly Bodwin](https://www.kelly-bodwin.com/) let's you add useful highlighting to code! 
-
----
-
-class: inverse
-
-### flair example
-
-```{r flair_example, include = FALSE}
-
-penguins %>% 
-  group_by(species) %>% 
-  summarize(mean_flipper = mean(flipper_length_mm, na.rm = TRUE))
-
-```
-
-```{r}
-decorate("flair_example") %>% 
-  flair("penguins", background = "orange") %>%
-  flair("group_by", background = "darkorchid") %>% 
-  flair("summarize", color = "cyan") %>% 
-  knit_print.with_flair()
-```
+- [{swirl}](https://swirlstats.com/) package to "learn R, in R" with existing lessons, or you can modify / create your own lessons! 
+- Tutorials in RStudio
+- [Data science in a box](https://datasciencebox.org/index.html) by Mine Cetinkaya-Rundel
+- [The big book of R](https://www.bigbookofr.com/) by Oscar Baruffa
+- [R for Excel Users](https://rstudio-conf-2020.github.io/r-for-excel/) 2-day workshop by Lowndes & Horst
 
 ---
 
@@ -451,10 +481,18 @@ knitr::include_graphics("go-r-teachers.png")
 
 ---
 
-## `r emo::ji("two")` tools to avoid installation barriers
+## `r emo::ji("two")` platforms to minimize installation barriers
 
 - {learnr}
 - RStudio Cloud
+
+---
+
+## [{learnr}](https://rstudio.github.io/learnr/)
+
+"The learnr package makes it easy to turn any R Markdown document into an interactive tutorial. Tutorials consist of content along with interactive components for checking and reinforcing understanding. 
+
+Tutorials automatically preserve work done within them, so if a user works on a few exercises or questions and returns to the tutorial later they can pick up right where they left off."
 
 ---
 
@@ -468,11 +506,13 @@ knitr::include_graphics("missing-home.png")
 
 ---
 
-Include activities, examples, quizzes, hints, and more!
+Include activities, examples, quizzes, hints, videos and more!
 
-```{r, echo = FALSE, out.width = "50%", fig.align = "center"}
+```{r, echo = FALSE, out.width = "80%", fig.align = "center"}
 knitr::include_graphics("missing-activities.png")
 ```
+
+See a bunch of other examples here: https://rstudio.github.io/learnr/
 
 ---
 
@@ -485,12 +525,27 @@ knitr::include_graphics("missing-activities.png")
 knitr::include_graphics("pam-gif.gif")
 ```
 
-
 ---
 
 ## RStudio Cloud
 
-https://datasciencebox.org/access-r.html
+- Share materials in an R project with a link! 
+- No git / GitHub needed
+
+"RStudio Cloud is a hosted version of RStudio in the cloud that makes it easy for professionals, hobbyists, trainers, teachers and students to do, share, teach and learn data science using R.
+
+Create your analyses using RStudio directly from your browser - there is no software to install and nothing to configure on your computer."
+
+### Let's check it out! 
+
+---
+
+### Don't miss out on the [RStudio Cloud primers](https://rstudio.cloud/learn/primers)
+
+```{r, echo = FALSE, fig.align = "center", out.width = "75%"}
+knitr::include_graphics("rstudio-cloud-primers.png")
+```
+
 
 ---
 
@@ -508,15 +563,14 @@ https://datasciencebox.org/access-r.html
 knitr::include_graphics("go-r-teachers.png")
 ```
 
-
 ---
 
 ## `r emo::ji("one")` big lesson learned
 
-### The best outcome is curiosity and confidence. 
+### Curiosity and resourcefulness are learning outcomes.
 
-```{r, echo = FALSE, out.width = "70%", fig.align = "center"}
-knitr::include_graphics("r-learners-encouragement.jpg")
+```{r, echo = FALSE, out.width = "40%", fig.align = "center"}
+knitr::include_graphics("code-hero.png")
 ```
 
 ---
@@ -529,25 +583,22 @@ knitr::include_graphics("r-learners-encouragement.jpg")
 
 - ### `r emo::ji("two")` platforms to minimize installation barriers `r emo::ji("check")`
 
-- ### `r emo::ji("one")` lesson learned 
+- ### `r emo::ji("one")` lesson learned `r emo::ji("check")`
 
 ```{r, echo = FALSE, out.width = "20%", fig.align = "center"}
 knitr::include_graphics("go-r-teachers.png")
 ```
 
-
 ---
 
-# Some starting points to learn more: 
+class: inverse, center
 
-- [Mine Cetinkaya-Rundel](https://mine-cr.com/)
-- [Tiffany Timbers](https://www.tiffanytimbers.com/)
-- [Greg Wilson](https://third-bit.com/)
+# A few (of many) teachers I learn from: 
+
+[Mine Cetinkaya-Rundel](https://mine-cr.com/) | [Tiffany Timbers](https://www.tiffanytimbers.com/) | [Greg Wilson](https://third-bit.com/)
 
 # I welcome you to reach out! 
 
-- ahorst@ucsb.edu
-- Twitter: @allison_horst
-- Web: www.allisonhorst.com
+ahorst@ucsb.edu | @allison_horst | www.allisonhorst.com
 
----
+## Thank you QMSS!
