@@ -6,5 +6,7 @@
 
 Prepared by Allison Horst
 
+- [Slides](https://allisonhorst.github.io/qmss-r-teaching-tools/slides/qmss_r_teaching_slides.html#1)
+
 
 
