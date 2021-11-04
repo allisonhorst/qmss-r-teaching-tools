@@ -381,8 +381,8 @@ knitr::include_graphics("go-r-teachers.png")
 ## `r emo::ji("three")` tools that might make your life easier
 
 1. `r emo::ji("swirl")` [{xaringan}](https://github.com/yihui/xaringan) for slides
-2. `r emo::ji("computer")` [GitHub Pages](https://pages.github.com/) to share keys (deploy from any branch!)
-3. `r emo::ji("book")` Use existing teaching materials
+2. `r emo::ji("computer")` [GitHub Pages](https://pages.github.com/) to share materials
+3. `r emo::ji("book")` Use existing educational resources
 
 ---
 
@@ -418,7 +418,7 @@ New R Markdown > From Template > Xaringan > `r emo::ji("knit")` !
 
 ## Using GitHub pages to make any .Rmd a web page
 
-In a GitHub repo named `bananas` (owned by user "giraffe"), deploying from the main branch (Settings > Pages > Deploy from branch):
+In a GitHub repo named `bananas` (owned by user "giraffe"), enable GitHub pages, choose source (Settings > Pages > from branch):
 
 - A file named `index.html` will be live at `giraffe.github.io/bananas`
 - Any other html will be published with file name as an added slug (e.g. `giraffe.github.io/bananas/taco.html`)
@@ -435,7 +435,7 @@ knitr::include_graphics("repo-gh-pages.png")
 
 ## And you've done this:
 
-Settings > Pages > (update where it deploys from)
+Settings > Pages > (update source)
 
 ```{r, echo = FALSE, out.width = "80%"}
 knitr::include_graphics("gh-pages.png")
