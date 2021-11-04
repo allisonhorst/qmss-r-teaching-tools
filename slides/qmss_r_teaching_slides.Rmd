@@ -519,7 +519,7 @@ See a bunch of other examples here: https://rstudio.github.io/learnr/
 ## You can make one too! 
 
 - Install the {learnr} package
-- New file > R Markdown > From Template > learnr tutorial
+- New file > R Markdown > From Template > Interactive Tutorial
 
 ```{r, echo = FALSE, out.width = "40%", fig.align = "center"}
 knitr::include_graphics("pam-gif.gif")
